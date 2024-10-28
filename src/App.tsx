@@ -1,11 +1,13 @@
+import { Canvas } from "@react-three/fiber";
 import "./App.css";
-import { Hello } from "./Hello";
+import ThreeElement from "./ThreeElement";
 
 function App() {
   return (
     <>
-      <Hello to="jay" />
-      <div>R3F basic</div>
+      <Canvas>
+        <ThreeElement />
+      </Canvas>
     </>
   );
 }
