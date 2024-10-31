@@ -1,7 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
-import ThreeElement from "./ThreeElement";
+import LightTestElement from "./LightTestElement";
 import { OrbitControls } from "@react-three/drei";
+import MaterialTestElement from "./MaterialTestElement";
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
           position: [5, 5, 5],
         }}
       >
-        <color attach="background" args={["white"]} />
+        <color attach="background" args={["black"]} />
         <OrbitControls />
-        <axesHelper args={[6]} />
-        <gridHelper args={[10, 10]} />
-        <ThreeElement />
+        {/* <axesHelper args={[6]} />
+        <gridHelper args={[10, 10]} /> */}
+        {/* <MaterialTestElement /> */}
+        <LightTestElement />
       </Canvas>
     </>
   );
