@@ -40,13 +40,20 @@ export default function LightTestElement() {
       {/* <ambientLight color={"blue"} intensity={1} /> */}
       {/* <hemisphereLight args={["blue", "yellow", 2]} /> */}
 
-      {/* <directionalLight
+      <directionalLight
+        castShadow // 빛에 의해서 쉐도우를 만들겠다는 옵션
+        shadow-camera-top={10} // shadow 카메라의 범위를 넓혀주는 속성 top
+        shadow-camera-bottom={-10} // shadow 카메라의 범위를 넓혀주는 속성 bottom
+        shadow-camera-left={-10} // shadow 카메라의 범위를 넓혀주는 속성 left
+        shadow-camera-right={10} // shadow 카메라의 범위를 넓혀주는 속성 right
+        shadow-mapSize={[512, 512]} // shadow map에 대한 선명도를 조절하는 속성
+        //
         ref={directLight}
         color={"#fff"}
         position={[0, 5, 0]}
         intensity={2}
         target-position={[0, 0, 2]}
-      /> */}
+      />
 
       {/* <pointLight
         color={"#fff"}
@@ -69,7 +76,11 @@ export default function LightTestElement() {
       <Environment files={"./images/hdr1.hdr"} background blur={0.1} />
 
       {/* 배경 깔기 */}
-      <mesh rotation-x={[THREE.MathUtils.degToRad(-90)]} position-y={-1}>
+      <mesh
+        rotation-x={[THREE.MathUtils.degToRad(-90)]}
+        position-y={-1}
+        receiveShadow // shadow를 받아서 처리하도록 하는 옵션
+      >
         <planeGeometry args={[15, 15]} />
         <meshStandardMaterial side={THREE.DoubleSide} color={"grey"} />
       </mesh>
@@ -80,7 +91,10 @@ export default function LightTestElement() {
       </mesh>
 
       <group ref={groupRef}>
-        <mesh>
+        <mesh
+          castShadow
+          receiveShadow // shadow를 받아서 처리하도록 하는 옵션
+        >
           <meshLambertMaterial
             color="red"
             visible
@@ -95,7 +109,10 @@ export default function LightTestElement() {
           />
         </mesh>
 
-        <mesh>
+        <mesh
+          castShadow
+          receiveShadow // shadow를 받아서 처리하도록 하는 옵션
+        >
           <meshPhongMaterial
             color="red"
             visible
@@ -113,7 +130,10 @@ export default function LightTestElement() {
           />
         </mesh>
 
-        <mesh>
+        <mesh
+          castShadow
+          receiveShadow // shadow를 받아서 처리하도록 하는 옵션
+        >
           <meshPhysicalMaterial
             color="#fff"
             visible={true}
@@ -136,7 +156,10 @@ export default function LightTestElement() {
           />
         </mesh>
 
-        <mesh>
+        <mesh
+          castShadow
+          receiveShadow // shadow를 받아서 처리하도록 하는 옵션
+        >
           <meshToonMaterial gradientMap={toon} color="skyblue" />
         </mesh>
       </group>
